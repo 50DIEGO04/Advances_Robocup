@@ -2,8 +2,7 @@
 
 **Data used**
 
-Work was done with three object classes selected due to the mechanical limitations of Colombia’s robotic gripper. The objects were chosen for their size.  
-The classes used are:
+Work was done with three object classes selected due to the mechanical limitations of Colombia’s robotic gripper. The objects were chosen for their size.  The classes used are:
 - Tuna
 - Sponge
 - Golf Ball
