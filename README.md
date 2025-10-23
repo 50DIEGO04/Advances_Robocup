@@ -1,64 +1,61 @@
+**Robocup2026 – Progress Object Classification with Computer Vision++
+Data used  
 
-Robocup2026 – Avance Clasificación de Objetos con Visión Artificial
-Datos utilizados
+Work was done with three object classes selected due to the mechanical limitations of Colombia’s robotic gripper. The objects were chosen for their size.  
+The classes used are:  
 
-Se trabajó con tres clases de objetos seleccionadas por las limitaciones mecánicas de la garra robótica de Colombia. Los objetos fueron elegidos por su tamaño.
-Las clases utilizadas son:
+Tuna  
 
-Tuna
+Sponge  
 
-Sponge
+Golf Ball  
 
-Golf Ball
+Each category had approximately 60 initial images, obtained from open sources.  
 
-Cada categoría contó con aproximadamente 60 imágenes iniciales, obtenidas de fuentes abiertas.
+Image processing  
 
-Procesamiento de imágenes
+A Python script was implemented to automatically process the image sets.  
+The code performs the following steps:  
 
-Se implementó un script en Python para procesar automáticamente los conjuntos de imágenes.
-El código realiza los siguientes pasos:
+Unzips the .zip files for each class.  
 
-Descomprime los archivos .zip de cada clase.
+Converts all images to .png format.  
 
-Convierte todas las imágenes al formato .png.
+Rotates the images at angles of 90°, 180°, 270°, and 360°, generating new views.  
 
-Rota las imágenes en ángulos de 90°, 180°, 270° y 360°, generando nuevas vistas.
+Organizes the processed images into four separate folders according to their angle.  
 
-Organiza las imágenes procesadas en cuatro carpetas separadas según su ángulo.
+Compresses the results again inside a general folder per class.  
 
-Comprime los resultados nuevamente dentro de una carpeta general por clase.
+This procedure made it possible to increase the number of samples available for training and improve the variability of the dataset.  
+Some images were not used due to resolution issues or visual redundancy.  
 
-Este procedimiento permitió ampliar la cantidad de muestras disponibles para el entrenamiento y mejorar la variabilidad del conjunto de datos.
-Algunas imágenes no fueron utilizadas debido a problemas de resolución o redundancia visual.
+Dataset creation  
 
-Creación del dataset
+Once the images were processed, they were uploaded to the Roboflow environment. Each image was classified with its corresponding class, which carried the name of the objects.  
+Three folders were generated corresponding to the three selected classes, with the following final counts:  
 
-Una vez procesadas las imágenes, se cargaron al entorno de Roboflow. Se clasificaron cada imagen con su respectiva clase, la cual llevaba el nombre de  los objetos
-Se generaron tres carpetas correspondientes a las tres clases seleccionadas, con el siguiente conteo final:
+Class	Uploaded images  
+Tuna	238  
+Golf Ball	240  
+Sponge	254  
 
-Clase	Imágenes cargadas
-Tuna	238
-Golf Ball	240
-Sponge	254
+Overall total: 732 images.  
 
-Total general: 732 imágenes.
+Version V2 of the dataset was created, which was automatically split by Roboflow into:  
 
-Se creó la versión V2 del dataset, que fue dividida automáticamente por Roboflow en:
+Training set: 513 images  
 
-Training set: 513 imágenes
+Validation set: 146 images  
 
-Validation set: 146 imágenes
+Testing set: 73 images  
 
-Testing set: 73 imágenes
+Code generation and repository linkage  
 
-Generación del código y vinculación con el repositorio
+In Roboflow, the Python code snippet for downloading the dataset in YOLOv8 format was automatically generated, which has already been incorporated into the GitHub repository.  
 
-En Roboflow se generó automáticamente el fragmento de código en Python para la descarga del dataset en formato YOLOv8, el cual ya fue incorporado dentro del repositorio de GitHub.
+This script allows direct access to the dataset from a Python environment, ensuring dataset traceability with Roboflow.  
 
+Current training status  
 
-Este script permite acceder directamente al conjunto de datos desde un entorno de Python, asegurando la trazabilidad del dataset con Roboflow.
-
-Estado actual del entrenamiento
-
-
-Enlace al proyecto en Roboflow: https://app.roboflow.com/andesrobot/robocup2026-y7rar/annotate
+Roboflow project link: https://app.roboflow.com/andesrobot/robocup2026-y7rar/annotate
